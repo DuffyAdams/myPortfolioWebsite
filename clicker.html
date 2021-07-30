@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head class="purple">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <title>Idle Clicker 🖱️</title>
+    <!-- Light theme styleheet -->
+    <link rel="stylesheet" href="styles.css" id="theme-link" />
+    <input
+      class="lightbulb"
+      type="image"
+      src="lightbulb-on.png"
+      id="lightmode"
+    />
+    <div class="display">
+      <h1 id="count-display">0</h1>
+    </div>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <button
+        data-type="money"
+        class="button_container"
+        onclick="clickMeFunc()"
+        id="clickme"
+      >
+        Click Me
+      </button>
+      <br /><br />
+      <button
+        data-type="upgradeIcon"
+        class="button_container"
+        onclick="buyUpgradeFunc()"
+        id="upgrade"
+      >
+        Clicker Upgrade (10)
+      </button>
+      <br /><br />
+      <button
+        data-type="autoClick"
+        class="button_container"
+        onclick="autoClickerFunc()"
+        id="passiveUpgrade"
+      >
+        Auto Click Upgrade (10)
+      </button>
+    </div>
+    <script src="clicker.js"></script>
+  </body>
+</html>

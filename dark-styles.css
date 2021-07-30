@@ -1,0 +1,110 @@
+.disable-dbl-tap-zoom {
+  touch-action: manipulation;
+}
+html {
+  text-align: center;
+  overflow: hidden;
+  touch-action: manipulation;
+}
+input {
+  height: 6vh;
+  float: right;
+  margin-right: 3vh;
+  margin-top: 2vh;
+  touch-action: manipulation;
+}
+input:active {
+  -webkit-transform: scale(.96);
+  -ms-transform: scale(.96);
+  transform: scale(.96);
+}
+.lightbulb {
+  touch-action: manipulation;
+  height: 6vh;
+  float: right;
+  margin-right: 3vh;
+  margin-top: 2vh;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
+body {
+  touch-action: manipulation;
+  background-color: #2c3e50;
+  min-height: 100%;
+}
+.display {
+  touch-action: manipulation;
+
+  color: #ffffff;
+  font-size: 5vh;
+  padding-bottom: 3vh;
+  padding-top: 12vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+.wrapper {
+  touch-action: manipulation;
+  padding-top: 3vh;
+}
+
+button {
+  overflow: auto;
+  border-radius: 5px;
+  border: none;
+  touch-action: manipulation;
+  font-size: 2.5vh;
+  background-color: #34495e;
+  color: white; /* White text */
+  cursor: pointer; /* Pointer/hand icon */
+  width: 45vh; /* Set a width if needed */
+  height: 11vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+button:disabled {
+  touch-action: manipulation;
+}
+button[disabled] {
+  background-color: #cccccc;
+  color: #666666;
+  touch-action: manipulation;
+}
+@media screen and (min-width: 700px) {
+  button:hover {
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+  }
+  button:active {
+    -webkit-transform: scale(.96);
+    -ms-transform: scale(.96);
+    transform: scale(.96);
+}
+  input:hover {
+    -webkit-transform: scale(1.03);
+    -ms-transform: scale(1.03);
+    transform: scale(1.03);
+}
+input:active {
+  -webkit-transform: scale(.96);
+  -ms-transform: scale(.96);
+  transform: scale(.96);
+}
+  particle {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    font-weight: bold;
+    color: #000000;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    position: fixed;
+    left: 0;
+    top: 0;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0;
+    touch-action: manipulation;
+  }
+}
+
