@@ -47,9 +47,17 @@ if (
 
     countDisplay.innerHTML = convertCount;
     button2.innerHTML =
-      "Clicker Upgrade: " + nFormatter(clickPower, 2) + " (" + nFormatter(upgradeCost, 2) + ")";
+      "Clicker Upgrade: " +
+      nFormatter(clickPower, 2) +
+      " (" +
+      nFormatter(upgradeCost, 2) +
+      ")";
     button3.innerHTML =
-      "Auto Click Upgrade: " + nFormatter(passiveUpgrade, 2) + " (" + nFormatter(passiveUpgradeCost, 2) + ")";
+      "Auto Click Upgrade: " +
+      nFormatter(passiveUpgrade, 2) +
+      " (" +
+      nFormatter(passiveUpgradeCost, 2) +
+      ")";
   }
 
   function save() {
@@ -185,7 +193,6 @@ if (
     let destinationY = (Math.random() - 0.5) * 300;
     let rotation = Math.random() * 520;
     let delay = Math.random() * 100;
-    
 
     switch (type) {
       case "square":
@@ -195,19 +202,19 @@ if (
         particle.style.border = "1px solid white";
         break;
       case "money":
-        particle.innerHTML = ["", "", "", " +" + clickPower , "", "", ""][
+        particle.innerHTML = ["", "", "", " +" + clickPower, "", "", ""][
           Math.floor(Math.random() * 7)
         ];
         particle.style.fontSize = `${Math.random() * 24 + 10}px`;
         width = height = "auto";
         break;
-        case "autoClick":
-          particle.innerHTML = ["⏫", "⏫", "⏫", "" , "", "", ""][
-            Math.floor(Math.random() * 7)
-          ];
-          particle.style.fontSize = `${Math.random() * 24 + 10}px`;
-          width = height = "auto";
-          break;
+      case "autoClick":
+        particle.innerHTML = ["⏫", "⏫", "⏫", "", "", "", ""][
+          Math.floor(Math.random() * 7)
+        ];
+        particle.style.fontSize = `${Math.random() * 24 + 10}px`;
+        width = height = "auto";
+        break;
       case "upgradeIcon":
         particle.innerHTML = ["🔼", "🔼", "🔼", "⠀", "⠀", "⠀", "⠀"][
           Math.floor(Math.random() * 7)
@@ -311,9 +318,17 @@ if (
 
     countDisplay.innerHTML = convertCount;
     button2.innerHTML =
-      "Clicker Upgrade: " + nFormatter(clickPower, 2) + " (" + nFormatter(upgradeCost, 2) + ")";
+      "Clicker Upgrade: " +
+      nFormatter(clickPower, 2) +
+      " (" +
+      nFormatter(upgradeCost, 2) +
+      ")";
     button3.innerHTML =
-      "Auto Click Upgrade: " + nFormatter(passiveUpgrade, 2) + " (" + nFormatter(passiveUpgradeCost, 2) + ")";
+      "Auto Click Upgrade: " +
+      nFormatter(passiveUpgrade, 2) +
+      " (" +
+      nFormatter(passiveUpgradeCost, 2) +
+      ")";
   }
 
   function save() {

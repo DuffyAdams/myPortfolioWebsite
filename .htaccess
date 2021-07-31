@@ -1,6 +1,0 @@
-Options -MultiViews
-RewriteEngine On
-RewriteBase /
-RewriteCond %{REQUEST_FILENAME} !-f    #If requested is not a filename...
-RewriteCond %{REQUEST_FILENAME} !-d    #And not a directory
-RewriteRule ^(.*)$ $1.html [L]          # perform this redirect
