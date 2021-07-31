@@ -35,7 +35,7 @@ if (
     autoClickPower = 0;
   }
   startGame();
-
+  load();
   displayButtons();
   check_count();
   myInterval = setInterval(update, timeSpeed);
