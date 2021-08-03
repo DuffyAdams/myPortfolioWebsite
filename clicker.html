@@ -7,12 +7,32 @@
     <title>Idle Clicker 🖱️</title>
     <!-- Light theme styleheet -->
     <link rel="stylesheet" href="styles.css" id="theme-link" />
+
     <input
       class="lightbulb"
       type="image"
       src="lightbulb-on.png"
       id="lightmode"
     />
+
+    <!-- THE MODAL -->
+
+    <!-- Trigger/Open The Modal -->
+    <button class="save" id="myBtn">Save</button>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <label>Username:</label>
+        <input type="text" id="username" />
+        <button class="saveButton" onclick="saveGame()" id="saveGame">
+          Save
+        </button>
+      </div>
+    </div>
+
     <div class="display">
       <h1 id="count-display">0</h1>
     </div>
@@ -47,6 +67,49 @@
         Auto Click Upgrade (10)
       </button>
     </div>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
     <script src="clicker.js"></script>
+    <script>
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+        apiKey: "AIzaSyDi-98upJXK984UcjPGVaLRhH7z7-KnzNs",
+        authDomain: "clickerdatabase-b6151.firebaseapp.com",
+        projectId: "clickerdatabase-b6151",
+        storageBucket: "clickerdatabase-b6151.appspot.com",
+        messagingSenderId: "971709894316",
+        appId: "1:971709894316:web:70129a2e707ccddd31d909",
+        measurementId: "G-K09R38DHDV",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+      console.log(firebase);
+
+      var database = firebase.database();
+      var ref = database.ref("counts");
+      function saveGame() {
+        var userName = document.getElementById("username").value;
+        var data = {
+          name: userName,
+          count: count,
+          upgradeCost: upgradeCost,
+          clickPower: clickPower,
+          passiveUpgradeCost: passiveUpgradeCost,
+          passiveUpgrade: passiveUpgrade,
+          timeSpeed: timeSpeed,
+          autoClickPower: autoClickPower,
+        };
+        ref.push(data);
+      }
+      
+    </script>
   </body>
 </html>

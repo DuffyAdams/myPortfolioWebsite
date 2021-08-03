@@ -1,18 +1,20 @@
+
 if (
   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
     navigator.userAgent
   )
 ) {
+
   var button = document.getElementById("clickme");
   var button2 = document.getElementById("upgrade");
   document.getElementById("upgrade").disabled = true;
   var button3 = document.getElementById("passiveUpgrade");
   document.getElementById("passiveUpgrade").disabled = true;
   var countDisplay = document.getElementById("count-display");
+  var savButton = document.getElementById("saveGame");
 
   const btn = document.getElementById("lightmode");
   const theme = document.getElementById("theme-link");
-  const savbtn = document.getElementById("saveButton");
 
   btn.addEventListener("click", function () {
     if (theme.getAttribute("href") == "styles.css") {
@@ -23,6 +25,7 @@ if (
   });
 
   function startGame() {
+    username = "Guest";
     convertCount = 0;
     count = 0;
     upgrade = 0;
@@ -423,5 +426,30 @@ if (
     passiveUpgradeCost = passiveUpgradeCost * 1.1;
     autoClickPower += 1;
     check_count();
+  }
+}
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn2 = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+btn2.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
   }
 }
