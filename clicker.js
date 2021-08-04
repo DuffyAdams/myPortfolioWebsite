@@ -1,10 +1,11 @@
 
+
 if (
   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
     navigator.userAgent
   )
 ) {
-
+  
   var button = document.getElementById("clickme");
   var button2 = document.getElementById("upgrade");
   document.getElementById("upgrade").disabled = true;
