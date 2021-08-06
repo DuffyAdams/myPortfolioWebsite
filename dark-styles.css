@@ -3,7 +3,6 @@
 }
 html {
   text-align: center;
-  overflow: hidden;
   touch-action: manipulation;
 }
 
@@ -104,7 +103,25 @@ input:active {
     opacity: 0;
     touch-action: manipulation;
   }
-
+  label {
+    font-weight: bold;
+    font-size: 2vh;
+  }
+  
+  .usernameBox {
+    text-align: center;
+    width: 100%;
+    padding: 8px 16px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    font-size: 3vh;
+  
+  }
+  .saveButton{
+    border-radius: 5px;
+    border: none;
+    font-size: 3vh;
+  }
 
 
 
@@ -157,12 +174,14 @@ input:active {
 .close {
   color: #aaa;
   float: right;
-  font-size: 30px;
+  font-size: 3vh;
   font-weight: bold;
+  margin-top: -20px;
 }
 
 .close:hover,
 .close:focus {
+  font-size: 4vh;
   color: black;
   text-decoration: none;
   cursor: pointer;
@@ -172,6 +191,11 @@ input:active {
   padding: .5vh;
 }
 hr.dashed {
-  border-top: 1vh dashed #bbb;
+  border:none;
+  border-top:.5vh dashed rgb(156, 156, 156);
+  color:#fff;
+  background-color:#fff;
+  height:.1vh;
+  width:50%;
 }
 

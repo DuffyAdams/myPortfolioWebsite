@@ -114,6 +114,7 @@ particle {
 }
 label {
   font-weight: bold;
+  font-size: 2vh;
 }
 
 .usernameBox {
@@ -179,12 +180,14 @@ label {
 .close {
   color: #aaa;
   float: right;
-  font-size: 30px;
+  font-size: 3vh;
   font-weight: bold;
+  margin-top: -20px;
 }
 
 .close:hover,
 .close:focus {
+  font-size: 4vh;
   color: black;
   text-decoration: none;
   cursor: pointer;
@@ -192,12 +195,19 @@ label {
 
 .highscores {
   font-size: 2.5vh;
-  padding-top: 2vh;
+  padding: .5vh;
+
 
 }
 hr.dashed {
-  border-top: 1vh dashed #bbb;
+  border:none;
+  border-top:.5vh dashed rgb(156, 156, 156);
+  color:#fff;
+  background-color:#fff;
+  height:.1vh;
+  width:50%;
 }
+
 
 
 
