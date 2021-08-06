@@ -32,7 +32,7 @@
       <div class="modal-content">
         <span class="close">&times;</span>
         <label>Username:</label>
-        <input type="text" id="username" />
+        <input class ="usernameBox" type="text" id="username" />
         <button class="saveButton" onclick="saveGame()" id="saveGame">
           Save
         </button>
@@ -101,6 +101,8 @@
       console.log(firebase);
       var ref = firebase.database().ref("counts");
       function saveGame() {
+        document.getElementById("highscores").innerHTML = "";
+
         // location.reload();
 
         document.getElementById("saveGame").disabled = true;
@@ -136,10 +138,10 @@
           .on("value", function (snapshot) {
             snapshot.forEach(function (data) {
               document.getElementById("highscores").innerHTML +=
-                "<br/><br/>Name: " +
+                "Name: " +
                 data.val().name +
                 "<br/>Score: " +
-                nFormatter(data.val().count, 2);
+                nFormatter(data.val().count, 2) + "<hr class=dashed>";
                 console.log(data.val().count);
 
             });
