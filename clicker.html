@@ -99,9 +99,13 @@
       firebase.initializeApp(firebaseConfig);
       firebase.analytics();
       console.log(firebase);
-
       var ref = firebase.database().ref("counts");
       function saveGame() {
+        // location.reload();
+
+        document.getElementById("saveGame").disabled = true;
+        setTimeout(function(){document.getElementById("saveGame").disabled = false;
+; }, 3000);
         var userName = document.getElementById("username").value;
         var data = {
           name: userName,
@@ -112,47 +116,36 @@
           passiveUpgrade: passiveUpgrade,
           timeSpeed: timeSpeed,
           autoClickPower: autoClickPower,
+          order: 1000000000 - count,
         };
 
         document.getElementById("highscores").innerHTML = "";
         ref.push(data);
+        document.getElementById("highscores").innerHTML = "";
+
         gotData();
       }
+
       gotData();
       function gotData() {
+
         document.getElementById("highscores").innerHTML = "";
-        var scoresRef = firebase.database().ref("counts");
-        document.getElementById("highscores").innerHTML = "";
-        scoresRef
-          .orderByChild("count")
-          .limitToLast(5)
+        ref
+          .orderByChild("order")
+          .limitToFirst(5)
           .on("value", function (snapshot) {
             snapshot.forEach(function (data) {
-
-              document.getElementById("highscores").innerHTML =
+              document.getElementById("highscores").innerHTML +=
                 "<br/><br/>Name: " +
                 data.val().name +
                 "<br/>Score: " +
-                data.val().count;
-                document.getElementById("highscores").innerHTML += '';
+                nFormatter(data.val().count, 2);
+                console.log(data.val().count);
 
             });
+
           });
       }
-      // function gotData(data) {
-      //   let info = data.val();
-      //   let keys = Object.keys(info);
-
-      //   for (let i = 0; i < 10; i++) {
-      //     let infoData = keys[i];
-      //     let name = info[infoData].name;
-      //     let count = info[infoData].count;
-
-      //     document.getElementById("highscores").innerHTML += "<br/><br/>Name: " + name + "<br/>Score: " + count;
-
-      //     console.log(name, count);
-      //   }
-      // }
     </script>
   </body>
 </html>

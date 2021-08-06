@@ -176,6 +176,7 @@ particle {
 }
 
 .highscores {
+  overflow: hidden
 
 }
 
