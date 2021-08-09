@@ -24,17 +24,17 @@
     <!-- THE MODAL -->
 
     <!-- Trigger/Open The Modal -->
-    <button class="save" id="myBtn">Save</button>
+    <input class="save" type="image" src="saveIcon.png" id="myBtn"></button>
 
     <!-- The Modal -->
     <div id="myModal" class="modal">
       <!-- Modal content -->
       <div class="modal-content">
         <span class="close">&times;</span>
-        <label>Enter Username </label>
-        <input class ="usernameBox" type="text" id="username" maxlength="12"/>
+        <label>Leaderboard </label>
+        <input class ="usernameBox" type="text" id="username" placeholder="Type Username Here" required maxlength="12"/>
         <button class="saveButton" onclick="saveGame()" id="saveGame">
-          Save
+          submit
         </button>
         <div class="highscores" id="highscores"></div>
       </div>
@@ -118,7 +118,7 @@
           passiveUpgrade: passiveUpgrade,
           timeSpeed: timeSpeed,
           autoClickPower: autoClickPower,
-          order: 1000000000 - count,
+          order: 9999999999999 - count,
         };
 
         document.getElementById("highscores").innerHTML = "";

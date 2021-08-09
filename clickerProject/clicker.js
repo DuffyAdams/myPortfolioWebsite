@@ -5,6 +5,7 @@ if (
     navigator.userAgent
   )
 ) {
+
   
   var button = document.getElementById("clickme");
   var button2 = document.getElementById("upgrade");
@@ -141,9 +142,9 @@ if (
   }
   function buyUpgradeFunc() {
     count -= upgradeCost;
-    upgrade += 1;
-    upgradeCost = upgradeCost * 1.1;
-    clickPower += 1;
+    upgrade += 1
+    upgradeCost = upgradeCost * 1.07;
+    clickPower += 1
     button2.innerHTML =
       "Clicker Upgrade: " + clickPower + " (" + upgradeCost + ")";
     countDisplay.innerHTML = count;
@@ -152,14 +153,14 @@ if (
 
   function autoClickerFunc() {
     count -= Math.round(passiveUpgradeCost);
-    passiveUpgrade += 1;
-    passiveUpgradeCost = passiveUpgradeCost * 1.1;
-    autoClickPower += 1;
+    passiveUpgrade += 1
+    passiveUpgradeCost = passiveUpgradeCost * 1.07;
+    autoClickPower += 1
     check_count();
   }
 } else {
   function pop(e) {
-    let amount = 30;
+    let amount = 1;
     switch (e.target.dataset.type) {
       case "shadow":
       case "line":
@@ -171,7 +172,7 @@ if (
       const bbox = e.target.getBoundingClientRect();
       const x = bbox.left + bbox.width / 2;
       const y = bbox.top + bbox.height / 2;
-      for (let i = 0; i < 30; i++) {
+      for (let i = 0; i < 1; i++) {
         // We call the function createParticle 30 times
         // We pass the coordinates of the button for x & y values
         createParticle(x, y, e.target.dataset.type);
@@ -207,14 +208,14 @@ if (
         break;
       case "money":
         particle.innerHTML = ["", "", "", " +" + clickPower, "", "", ""][
-          Math.floor(Math.random() * 7)
+          Math.floor(3)
         ];
-        particle.style.fontSize = `${Math.random() * 24 + 10}px`;
+        particle.style.fontSize = `${Math.random() * 5 + 2}vh`;
         width = height = "auto";
         break;
       case "autoClick":
         particle.innerHTML = ["⏫", "⏫", "⏫", "", "", "", ""][
-          Math.floor(Math.random() * 7)
+          Math.floor(1)
         ];
         particle.style.fontSize = `${Math.random() * 24 + 10}px`;
         width = height = "auto";
