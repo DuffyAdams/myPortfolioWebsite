@@ -144,7 +144,7 @@ if (
     count -= upgradeCost;
     upgrade += 1
     upgradeCost = upgradeCost * 1.07;
-    clickPower += 1
+    clickPower += 1;
     button2.innerHTML =
       "Clicker Upgrade: " + clickPower + " (" + upgradeCost + ")";
     countDisplay.innerHTML = count;
@@ -206,10 +206,11 @@ if (
         }, 70%, 60%)`;
         particle.style.border = "1px solid white";
         break;
-      case "money":
+      case "money":{
         particle.innerHTML = ["", "", "", " +" + clickPower, "", "", ""][
           Math.floor(3)
         ];
+      }
         particle.style.fontSize = `${Math.random() * 5 + 2}vh`;
         width = height = "auto";
         break;
@@ -217,14 +218,14 @@ if (
         particle.innerHTML = ["⏫", "⏫", "⏫", "", "", "", ""][
           Math.floor(1)
         ];
-        particle.style.fontSize = `${Math.random() * 24 + 10}px`;
+        particle.style.fontSize = `${Math.random() * 5 + 2}vh`;
         width = height = "auto";
         break;
       case "upgradeIcon":
         particle.innerHTML = ["🔼", "🔼", "🔼", "⠀", "⠀", "⠀", "⠀"][
-          Math.floor(Math.random() * 7)
+          Math.floor(1)
         ];
-        particle.style.fontSize = `${Math.random() * 24 + 10}px`;
+        particle.style.fontSize = `${Math.random() * 5 + 2}vh`;
         width = height = "auto";
         break;
       case "shadow":
@@ -405,6 +406,7 @@ if (
     check_count();
   }
   function clickMeFunc() {
+    bonusPoints();
     count += clickPower;
     check_count();
   }
@@ -421,7 +423,17 @@ if (
     countDisplay.innerHTML = count;
     check_count();
   }
+  function bonusPoints() {
+    let random = Math.floor(Math.random() * 100) + 1 
+    if (random < 10){
+      var clickBonusAmount = Math.floor(Math.random() * 10) + 1 
+      count += (clickPower * clickBonusAmount);
+      console.log("Bonus amount = " + clickBonusAmount * clickPower);
+    }
+    console.log(random);
 
+  }
+  
   function autoClickerFunc() {
     count -= Math.round(passiveUpgradeCost);
     passiveUpgrade += 1;
