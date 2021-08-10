@@ -5,6 +5,7 @@ if (
     navigator.userAgent
   )
 ) {
+
   var clickBonusAmount = null;
   var random = null;
   var button = document.getElementById("clickme");
@@ -198,7 +199,9 @@ if (
     let destinationY = (Math.random() - 0.5) * 300;
     let rotation = Math.random() * 520;
     let delay = Math.random() * 100;
-
+    function randomIntFromInterval(min, max) { // min and max included 
+      return Math.floor(Math.random() * (max - min + 1) + min)
+    }
     switch (type) {
       case "square":
         particle.style.background = `hsl(${
@@ -208,13 +211,18 @@ if (
         break;
       case "money":{
         random = Math.floor(Math.random() * 100) + 1 
-        if (random < 10 && random > 1){
-          clickBonusAmount = Math.floor(Math.random() * 10) + 1 
+        if (random < 10){
+
+          clickBonusAmount = randomIntFromInterval(2,10);
           bonusClick = clickPower * clickBonusAmount;
           count += (bonusClick);
           particle.innerHTML = ["", "", "", "<span style='color:#f1c40f'>" + " +" + bonusClick + "</span>", "", "", ""][
             Math.floor(3)
-          ];
+
+          ];          
+          console.log(bonusClick);
+        
+
           check_count();
           displayButtons();
         } else {
