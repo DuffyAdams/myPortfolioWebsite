@@ -5,8 +5,8 @@ if (
     navigator.userAgent
   )
 ) {
-
-  
+  var clickBonusAmount = null;
+  var random = null;
   var button = document.getElementById("clickme");
   var button2 = document.getElementById("upgrade");
   document.getElementById("upgrade").disabled = true;
@@ -207,9 +207,22 @@ if (
         particle.style.border = "1px solid white";
         break;
       case "money":{
-        particle.innerHTML = ["", "", "", " +" + clickPower, "", "", ""][
-          Math.floor(3)
-        ];
+        random = Math.floor(Math.random() * 100) + 1 
+        if (random < 10 && random > 1){
+          clickBonusAmount = Math.floor(Math.random() * 10) + 1 
+          bonusClick = clickPower * clickBonusAmount;
+          count += (bonusClick);
+          particle.innerHTML = ["", "", "", "<span style='color:#f1c40f'>" + " +" + bonusClick + "</span>", "", "", ""][
+            Math.floor(3)
+          ];
+          check_count();
+          displayButtons();
+        } else {
+          particle.innerHTML = ["", "", "", " +" + clickPower, "", "", ""][
+            Math.floor(3)
+          ];
+        }
+
       }
         particle.style.fontSize = `${Math.random() * 5 + 2}vh`;
         width = height = "auto";
@@ -406,7 +419,6 @@ if (
     check_count();
   }
   function clickMeFunc() {
-    bonusPoints();
     count += clickPower;
     check_count();
   }
@@ -423,16 +435,16 @@ if (
     countDisplay.innerHTML = count;
     check_count();
   }
-  function bonusPoints() {
-    let random = Math.floor(Math.random() * 100) + 1 
-    if (random < 10){
-      var clickBonusAmount = Math.floor(Math.random() * 10) + 1 
-      count += (clickPower * clickBonusAmount);
-      console.log("Bonus amount = " + clickBonusAmount * clickPower);
-    }
-    console.log(random);
+  // function bonusPoints() {
+  //   random = Math.floor(Math.random() * 100) + 1 
+  //   if (random < 10){
+  //     clickBonusAmount = Math.floor(Math.random() * 10) + 1 
+  //     count += (clickPower * clickBonusAmount);
+  //     console.log("Bonus amount = " + clickBonusAmount * clickPower);
+  //   }
+  //   console.log(random);
 
-  }
+  // }
   
   function autoClickerFunc() {
     count -= Math.round(passiveUpgradeCost);
