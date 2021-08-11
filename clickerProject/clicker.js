@@ -1,10 +1,18 @@
 
-
+  function empty() {
+    var x;
+    x = document.getElementById("username").value;
+    if (x == "") {
+        alert("Please Enter a Valid Username");
+        return false;
+    };
+}
 if (
   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
     navigator.userAgent
   )
 ) {
+
 
   var clickBonusAmount = null;
   var random = null;

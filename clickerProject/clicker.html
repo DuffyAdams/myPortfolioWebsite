@@ -15,7 +15,7 @@
     />
 
     <input
-      class="lightbulb"
+      class="lightbulbNav"
       type="image"
       src="lightbulb-on.png"
       id="lightmode"
@@ -24,14 +24,14 @@
     <!-- THE MODAL -->
 
     <!-- Trigger/Open The Modal -->
-    <input class="save" type="image" src="saveIcon.png" id="myBtn"></button>
+    <input class="saveNav" type="image" src="saveIcon.png" id="myBtn"></button>
 
     <!-- The Modal -->
     <div id="myModal" class="modal">
       <!-- Modal content -->
       <div class="modal-content">
         <span class="close">&times;</span>
-        <label>Leaderboard </label>
+        <label class="modalHeader"> Leaderboard 🏆</label>
         <input class ="usernameBox" type="text" id="username" placeholder="Type Username Here" required maxlength="12"/>
         <button class="saveButton" onclick="saveGame()" id="saveGame">
           submit
@@ -101,31 +101,36 @@
       console.log(firebase);
       var ref = firebase.database().ref("counts");
       function saveGame() {
-        document.getElementById("highscores").innerHTML = "";
+        if(empty() == false){ 
 
-        // location.reload();
+}else{
+  document.getElementById("highscores").innerHTML = "";
 
-        document.getElementById("saveGame").disabled = true;
-        setTimeout(function(){document.getElementById("saveGame").disabled = false;
+// location.reload();
+
+document.getElementById("saveGame").disabled = true;
+setTimeout(function(){document.getElementById("saveGame").disabled = false;
 ; }, 3000);
-        var userName = document.getElementById("username").value;
-        var data = {
-          name: userName,
-          count: count,
-          upgradeCost: upgradeCost,
-          clickPower: clickPower,
-          passiveUpgradeCost: passiveUpgradeCost,
-          passiveUpgrade: passiveUpgrade,
-          timeSpeed: timeSpeed,
-          autoClickPower: autoClickPower,
-          order: 9999999999999 - count,
-        };
+var userName = document.getElementById("username").value;
+var data = {
+  name: userName,
+  count: count,
+  upgradeCost: upgradeCost,
+  clickPower: clickPower,
+  passiveUpgradeCost: passiveUpgradeCost,
+  passiveUpgrade: passiveUpgrade,
+  timeSpeed: timeSpeed,
+  autoClickPower: autoClickPower,
+  order: 9999999999999 - count,
+};
 
-        document.getElementById("highscores").innerHTML = "";
-        ref.push(data);
-        document.getElementById("highscores").innerHTML = "";
+document.getElementById("highscores").innerHTML = "";
+ref.push(data);
+document.getElementById("highscores").innerHTML = "";
 
-        gotData();
+gotData();
+}
+
       }
 
       gotData();
