@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head class="purple">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <title>Idle Clicker 🖱️</title>
+    <!-- Light theme styleheet -->
+    <link rel="stylesheet" href="styles.css" id="theme-link" />
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css"
+    />
+
+    <input
+      class="lightbulbNav"
+      type="image"
+      src="lightbulb-on.png"
+      id="lightmode"
+    />
+
+    <!-- THE MODAL -->
+
+    <!-- Trigger/Open The Modal -->
+    <input class="saveNav" type="image" src="saveIcon.png" id="myBtn"></button>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <label class="modalHeader"> Leaderboard 🏆</label>
+        <input class ="usernameBox" type="text" id="username" placeholder="Type Username Here" required maxlength="12"/>
+        <button class="saveButton" onclick="saveGame()" id="saveGame">
+          submit
+        </button>
+        <div class="highscores" id="highscores"></div>
+      </div>
+    </div>
+
+    <div class="display">
+      <h1 id="count-display">0</h1>
+    </div>
+  </head>
+
+  <body>
+    <div id="progress"><div id="progress-bar"></div></div>
+    <div class="wrapper">
+      <button
+        data-type="money"
+        class="button_container"
+        onclick="clickMeFunc()"
+        id="clickme"
+      >
+        Click Me
+      </button>
+      <br /><br />
+      <button
+        data-type="upgradeIcon"
+        class="button_container"
+        onclick="buyUpgradeFunc()"
+        id="upgrade"
+      >
+        Clicker Upgrade (10)
+      </button>
+      <br /><br />
+      <button
+        data-type="autoClick"
+        class="button_container"
+        onclick="autoClickerFunc()"
+        id="passiveUpgrade"
+      >
+        Auto Click Upgrade (10)
+      </button>
+    </div>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+    <script src="clicker.js"></script>
+    <script>
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+        apiKey: "AIzaSyDi-98upJXK984UcjPGVaLRhH7z7-KnzNs",
+        authDomain: "clickerdatabase-b6151.firebaseapp.com",
+        projectId: "clickerdatabase-b6151",
+        storageBucket: "clickerdatabase-b6151.appspot.com",
+        messagingSenderId: "971709894316",
+        appId: "1:971709894316:web:70129a2e707ccddd31d909",
+        measurementId: "G-K09R38DHDV",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+      console.log(firebase);
+      var ref = firebase.database().ref("counts");
+      function saveGame() {
+        if(empty() == false){ 
+
+}else{
+  document.getElementById("highscores").innerHTML = "";
+
+// location.reload();
+
+document.getElementById("saveGame").disabled = true;
+setTimeout(function(){document.getElementById("saveGame").disabled = false;
+; }, 3000);
+var userName = document.getElementById("username").value;
+var data = {
+  name: userName,
+  count: count,
+  upgradeCost: upgradeCost,
+  clickPower: clickPower,
+  passiveUpgradeCost: passiveUpgradeCost,
+  passiveUpgrade: passiveUpgrade,
+  timeSpeed: timeSpeed,
+  autoClickPower: autoClickPower,
+  order: 9999999999999 - count,
+};
+
+document.getElementById("highscores").innerHTML = "";
+ref.push(data);
+document.getElementById("highscores").innerHTML = "";
+
+gotData();
+}
+
+      }
+
+      gotData();
+      function gotData() {
+
+        document.getElementById("highscores").innerHTML = "";
+        ref
+          .orderByChild("order")
+          .limitToFirst(5)
+          .on("value", function (snapshot) {
+            snapshot.forEach(function (data) {
+              document.getElementById("highscores").innerHTML +=
+                "Name: " +
+                data.val().name +
+                "<br/>Score: " +
+                nFormatter(data.val().count, 2) + "<hr class=dashed>";
+                console.log(data.val().count);
+
+            });
+
+          });
+      }
+    </script>
+  </body>
+</html>
