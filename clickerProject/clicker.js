@@ -23,6 +23,7 @@ if (
   document.getElementById("passiveUpgrade").disabled = true;
   var countDisplay = document.getElementById("count-display");
   var savButton = document.getElementById("saveGame");
+  const progressBar = document.querySelector("#progress-bar");
 
   const btn = document.getElementById("lightmode");
   const theme = document.getElementById("theme-link");
@@ -141,6 +142,14 @@ if (
   function update() {
     count += autoClickPower;
     check_count();
+    progressBar.style.width = ((count/upgradeCost)*100) + "%";
+    if (parseInt(progressBar) > 100){
+      progressBar.style.background = 'rgb(' + [255,255,255].join(',') + ')';
+    }
+    else{
+      progressBar.style.background = 'rgb(' + [215,155,255].join(',') + ')';
+
+    }
   }
   function clickMeFunc() {
     count += clickPower;
@@ -350,7 +359,7 @@ if (
     convertCount = nFormatter(count, 2);
     upgradeCost = round5(upgradeCost);
     passiveUpgradeCost = round5(passiveUpgradeCost);
-
+    progressBar.style.width = parseInt(count/upgradeCost) + "%";
     countDisplay.innerHTML = convertCount;
     button2.innerHTML =
       "Clicker Upgrade: " +
