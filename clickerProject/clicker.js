@@ -144,10 +144,10 @@ if (
     check_count();
     progressBar.style.width = ((count/upgradeCost)*100) + "%";
     if (((count/upgradeCost)*100) > 100){
-      progressBar.style.background = 'rgb(' + [255,255,255].join(',') + ')';
+      progressBar.style.background = 'rgb(' + [46,204,113].join(',') + ')';
     }
     else{
-      progressBar.style.background = 'rgb(' + [215,155,255].join(',') + ')';
+      progressBar.style.background = 'rgb(' + [52,152,219].join(',') + ')';
     }
   }
   function clickMeFunc() {
