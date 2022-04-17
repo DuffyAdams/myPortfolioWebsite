@@ -142,6 +142,8 @@ if (
   function update() {
     count += autoClickPower;
     check_count();
+    clickerBar = ((count/upgradeCost)*100);
+    autoClickerBar = ((count/passiveUpgradeCost)*100);
     if (clickerBar > autoClickerBar){
       progressBar.style.width = clickerBar + "%";
       if (clickerBar > 100){
