@@ -235,4 +235,15 @@ hr.dashed {
   height:.1vh;
   width:50%;
 }
+#progress {
+  position: fixed;
+  top: 0; left: 0; width: 100vw;
+  background: #eee;
+  height: 10px;
+}
+#progress-bar {
+  height: inherit;
+  background: rgb(14, 172, 75);
+  transition: 0.3s;
+}
 

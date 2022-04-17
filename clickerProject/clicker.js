@@ -142,13 +142,24 @@ if (
   function update() {
     count += autoClickPower;
     check_count();
-    progressBar.style.width = ((count/upgradeCost)*100) + "%";
-    if (((count/upgradeCost)*100) > 100){
-      progressBar.style.background = 'rgb(' + [46,204,113].join(',') + ')';
+    if (clickerBar > autoClickerBar){
+      progressBar.style.width = clickerBar + "%";
+      if (clickerBar > 100){
+        progressBar.style.background = 'rgb(' + [46,204,113].join(',') + ')';
+      }
+      else{
+        progressBar.style.background = 'rgb(' + [52,152,219].join(',') + ')';
+      }
+    } else {
+      progressBar.style.width = autoClickerBar + "%";
+      if (autoClickerBar > 100){
+        progressBar.style.background = 'rgb(' + [46,204,113].join(',') + ')';
+      }
+      else{
+        progressBar.style.background = 'rgb(' + [52,152,219].join(',') + ')';
+      }
     }
-    else{
-      progressBar.style.background = 'rgb(' + [52,152,219].join(',') + ')';
-    }
+
   }
   function clickMeFunc() {
     count += clickPower;
@@ -229,7 +240,7 @@ if (
         random = Math.floor(Math.random() * 100) + 1 
         if (random < 10){
 
-          clickBonusAmount = randomIntFromInterval(2,10);
+          clickBonusAmount = randomIntFromInterval(2,15);
           bonusClick = clickPower * clickBonusAmount;
           count += (bonusClick);
           particle.innerHTML = ["", "", "", "<span style='color:#f1c40f'>" + " +" + bonusClick + "</span>", "", "", ""][
@@ -442,14 +453,24 @@ if (
   function update() {
     count += autoClickPower;
     check_count();
-    progressBar.style.width = ((count/upgradeCost)*100) + "%";
-    if (((count/upgradeCost)*100) > 100){//rgb(46, 204, 113)rgb(26, 188, 156)rgb(52, 152, 219)
-      progressBar.style.background = 'rgb(' + [46,204,113].join(',') + ')';
-    }
-    else{
-      progressBar.style.background = 'rgb(' + [52,152,219].join(',') + ')';
-    }
-  }
+    clickerBar = ((count/upgradeCost)*100);
+    autoClickerBar = ((count/passiveUpgradeCost)*100);
+    if (clickerBar > autoClickerBar){
+      progressBar.style.width = clickerBar + "%";
+      if (clickerBar > 100){
+        progressBar.style.background = 'rgb(' + [46,204,113].join(',') + ')';
+      }
+      else{
+        progressBar.style.background = 'rgb(' + [52,152,219].join(',') + ')';
+      }
+    } else {
+      progressBar.style.width = autoClickerBar + "%";
+      if (autoClickerBar > 100){
+        progressBar.style.background = 'rgb(' + [46,204,113].join(',') + ')';
+      }
+      else{
+        progressBar.style.background = 'rgb(' + [52,152,219].join(',') + ')';
+      }}}
   function clickMeFunc() {
     count += clickPower;
     check_count();

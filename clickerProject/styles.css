@@ -240,11 +240,11 @@ hr.dashed {
   position: fixed;
   top: 0; left: 0; width: 100vw;
   background: #eee;
-  height: 10px;
+  height: 8px;
 }
 #progress-bar {
   height: inherit;
-  background: rgb(14, 172, 75);
-  transition: 0.3s;
+  background: rgb(255, 255, 255);
+  transition: 0.25s;
 }
 
