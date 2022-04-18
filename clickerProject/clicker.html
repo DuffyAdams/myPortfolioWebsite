@@ -17,21 +17,23 @@
     <input
       class="lightbulbNav"
       type="image"
-      src="lightbulb-on.png"
+      src="lightbulb-on.svg"
       id="lightmode"
     />
 
     <!-- THE MODAL -->
 
     <!-- Trigger/Open The Modal -->
-    <input class="saveNav" type="image" src="saveIcon.png" id="myBtn"></button>
+    <input class="saveNav" type="image" src="saveIcon.svg" id="myBtn"></button>
 
     <!-- The Modal -->
     <div id="myModal" class="modal">
       <!-- Modal content -->
       <div class="modal-content">
-        <span class="close">&times;</span>
-        <label class="modalHeader"> Leaderboard 🏆</label>
+        <br>
+        <span class="close">❌</span>
+        <label class="modalHeader">Leaderboard 🏆</label>
+        <br>
         <input class ="usernameBox" type="text" id="username" placeholder="Type Username Here" required maxlength="12"/>
         <button class="saveButton" onclick="saveGame()" id="saveGame">
           submit
@@ -73,6 +75,14 @@
         id="passiveUpgrade"
       >
         Auto Click Upgrade (10)
+      </button>
+      <br /><br />
+      <button
+        class="button_container"
+        onclick="Reset()"
+        style="width:15vh;height:8vh;font-size:2.5vh;background-color: #c0392b;"
+      >
+        Reset
       </button>
     </div>
 

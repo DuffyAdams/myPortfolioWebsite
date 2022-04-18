@@ -55,6 +55,9 @@ if (
   check_count();
   myInterval = setInterval(update, timeSpeed);
 
+  function Reset(){
+  startGame();
+  }
   function displayButtons() {
     convertCount = nFormatter(count, 2);
     upgradeCost = round5(upgradeCost);
@@ -363,6 +366,9 @@ if (
     x = 0;
     autoClickPower = 0;
   }
+  function Reset(){
+    startGame();
+    }
   startGame();
   load();
   displayButtons();

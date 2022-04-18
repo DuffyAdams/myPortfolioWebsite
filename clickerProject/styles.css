@@ -7,23 +7,23 @@ html {
   touch-action: manipulation;
 }
 
-
 .saveGame {
   float: left;
-  width: 15vh;
+  width: 18vw;
+
 }
 .lightbulbNav {
-  height: 6vh;
+  height: 7vh;
   float: right;
   margin-right: 3vh;
   margin-top: 2vh;
   touch-action: manipulation;
 }
 .saveNav {
-  height: 6vh;
+  height: 8vh;
   float: left;
-  margin-left: 2vh;
-  margin-top: 2vh;
+  margin-left: 3vh;
+  margin-top: 1.5vh;
   touch-action: manipulation;
 }
 
@@ -63,6 +63,13 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   touch-action: manipulation;
+  
+}
+.button_container:hover {
+  width: 45vh; /* Set a width if needed */
+  height: 11vh;
+
+  
 }
 .button_container[disabled] {
   background-color: #cccccc;
@@ -73,7 +80,7 @@ body {
 
 
 /* WONT SHOW ON MOBILE DEVICES */
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 500px) {
   .saveButton[disabled] {
     background-color: #cccccc;
     color: #666666;
@@ -98,14 +105,14 @@ body {
     transform: scale(0.93);
   }
   .saveNav:hover {
-    -webkit-transform: scale(1.03);
-    -ms-transform: scale(1.03);
-    transform: scale(1.03);
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
   }
   .lightbulbNav:hover {
-    -webkit-transform: scale(1.03);
-    -ms-transform: scale(1.03);
-    transform: scale(1.03);
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
   }
   .saveNav:active {
     -webkit-transform: scale(0.96);
@@ -146,6 +153,7 @@ label {
   margin-top: 1.5vh;
   box-sizing: border-box;
   font-size: 3vh;
+  max-width: 25vh;
 }
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: rgba(134, 134, 134, 0.568);
@@ -164,6 +172,9 @@ label {
 /* The Modal (background) */
 .modalHeader{
   font-size: 3vh;
+  padding-left: 5vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+  Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 
@@ -185,23 +196,23 @@ label {
 .modal {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
+  overflow: hidden; /* Enable scroll if needed */
   background-color: rgb(0, 0, 0); /* Fallback color */
   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+
 }
 
 /* Modal Content/Box */
 .modal-content {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  background-color: #fefefe;
+  background-color: #ffffff;
   margin: 5% auto; /* 15% from the top and centered */
   padding: 2vh;
   border: 4px solid #888;
@@ -215,7 +226,7 @@ label {
   float: right;
   font-size: 3vh;
   font-weight: bold;
-  margin-top: -20px;
+  margin-top: -25px;
 }
 
 .close:hover,
@@ -223,18 +234,14 @@ label {
   color: black;
   cursor: pointer;
 }
-
-.highscores {
-  font-size: 2.5vh;
-  padding: 0.5vh;
-}
 hr.dashed {
   border: none;
   border-top: 0.5vh dashed rgb(156, 156, 156);
   color: #fff;
   background-color: #fff;
-  height: 0.1vh;
-  width: 50%;
+  height:.1vh;
+  width: 100%;
+
 }
 #progress {
   position: fixed;
