@@ -1,11 +1,28 @@
 
-  function empty() {
-    var x;
-    x = document.getElementById("username").value;
-    if (x == "") {
-        alert("Please Enter a Valid Username");
-        return false;
-    };
+function empty() {
+  var x;
+  var letters = (/^[A-Za-z]+$/);
+  x = document.getElementById("username").value;
+  if (x == "") {
+    alert("Please enter a valid username");
+    return false;
+  };
+  if (x.length > 10) {
+    alert("Username must be shorter than 12 characters");
+    return false;
+  };
+  if (!x.match(letters)) {
+    alert('Please input alphabet characters only');
+    return false;
+  };
+  confirmation();
+
+}
+
+function confirmation() {
+  if (confirm("Submitting a score will decrease count by 50%\nDo you want to continue?") == true) {
+
+  }
 }
 if (
   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
@@ -53,10 +70,13 @@ if (
   load();
   displayButtons();
   check_count();
-  myInterval = setInterval(update, timeSpeed);
-
-  function Reset(){
-  startGame();
+  myInterval = setInterval(function () {
+    for (var i = 0; i < 1; i++) {
+      update()
+    }
+  }, timeSpeed);
+  function Reset() {
+    startGame();
   }
   function displayButtons() {
     convertCount = nFormatter(count, 2);
@@ -145,23 +165,23 @@ if (
   function update() {
     count += autoClickPower;
     check_count();
-    clickerBar = ((count/upgradeCost)*100);
-    autoClickerBar = ((count/passiveUpgradeCost)*100);
-    if (clickerBar > autoClickerBar){
+    clickerBar = ((count / upgradeCost) * 100);
+    autoClickerBar = ((count / passiveUpgradeCost) * 100);
+    if (clickerBar > autoClickerBar) {
       progressBar.style.width = clickerBar + "%";
-      if (clickerBar > 100){
-        progressBar.style.background = 'rgb(' + [46,204,113].join(',') + ')';
+      if (clickerBar > 100) {
+        progressBar.style.background = 'rgb(' + [46, 204, 113].join(',') + ')';
       }
-      else{
-        progressBar.style.background = 'rgb(' + [52,152,219].join(',') + ')';
+      else {
+        progressBar.style.background = 'rgb(' + [52, 152, 219].join(',') + ')';
       }
     } else {
       progressBar.style.width = autoClickerBar + "%";
-      if (autoClickerBar > 100){
-        progressBar.style.background = 'rgb(' + [46,204,113].join(',') + ')';
+      if (autoClickerBar > 100) {
+        progressBar.style.background = 'rgb(' + [46, 204, 113].join(',') + ')';
       }
-      else{
-        progressBar.style.background = 'rgb(' + [52,152,219].join(',') + ')';
+      else {
+        progressBar.style.background = 'rgb(' + [52, 152, 219].join(',') + ')';
       }
     }
 
@@ -176,7 +196,7 @@ if (
   function buyUpgradeFunc() {
     count -= upgradeCost;
     upgrade += 1
-    upgradeCost = upgradeCost * 1.07;
+    upgradeCost = upgradeCost * 1.05;
     clickPower += 1;
     button2.innerHTML =
       "Clicker Upgrade: " + clickPower + " (" + upgradeCost + ")";
@@ -236,24 +256,23 @@ if (
     }
     switch (type) {
       case "square":
-        particle.style.background = `hsl(${
-          Math.random() * 90 + 270
-        }, 70%, 60%)`;
+        particle.style.background = `hsl(${Math.random() * 90 + 270
+          }, 70%, 60%)`;
         particle.style.border = "1px solid white";
         break;
-      case "money":{
-        random = Math.floor(Math.random() * 100) + 1 
-        if (random < 10){
+      case "money": {
+        random = Math.floor(Math.random() * 100) + 1
+        if (random < 10) {
 
-          clickBonusAmount = randomIntFromInterval(2,15);
+          clickBonusAmount = randomIntFromInterval(2, 15);
           bonusClick = clickPower * clickBonusAmount;
           count += (bonusClick);
           particle.innerHTML = ["", "", "", "<span style='color:#f1c40f'>" + " +" + bonusClick + "</span>", "", "", ""][
             Math.floor(3)
 
-          ];          
+          ];
           console.log(bonusClick);
-        
+
 
           check_count();
           displayButtons();
@@ -308,9 +327,8 @@ if (
           opacity: 1,
         },
         {
-          transform: `translate(-50%, -50%) translate(${x + destinationX}px, ${
-            y + destinationY
-          }px) rotate(${rotation}deg)`,
+          transform: `translate(-50%, -50%) translate(${x + destinationX}px, ${y + destinationY
+            }px) rotate(${rotation}deg)`,
           opacity: 0,
         },
       ],
@@ -366,15 +384,18 @@ if (
     x = 0;
     autoClickPower = 0;
   }
-  function Reset(){
+  function Reset() {
     startGame();
-    }
+  }
   startGame();
   load();
   displayButtons();
   check_count();
-  myInterval = setInterval(update, timeSpeed);
-
+  myInterval = setInterval(function () {
+    for (var i = 0; i < 1; i++) {
+      update()
+    }
+  }, timeSpeed);
   function displayButtons() {
     convertCount = nFormatter(count, 2);
     upgradeCost = round5(upgradeCost);
@@ -461,24 +482,26 @@ if (
   function update() {
     count += autoClickPower;
     check_count();
-    clickerBar = ((count/upgradeCost)*100);
-    autoClickerBar = ((count/passiveUpgradeCost)*100);
-    if (clickerBar > autoClickerBar){
+    clickerBar = ((count / upgradeCost) * 100);
+    autoClickerBar = ((count / passiveUpgradeCost) * 100);
+    if (clickerBar > autoClickerBar) {
       progressBar.style.width = clickerBar + "%";
-      if (clickerBar > 100){
-        progressBar.style.background = 'rgb(' + [46,204,113].join(',') + ')';
+      if (clickerBar > 100) {
+        progressBar.style.background = 'rgb(' + [46, 204, 113].join(',') + ')';
       }
-      else{
-        progressBar.style.background = 'rgb(' + [52,152,219].join(',') + ')';
+      else {
+        progressBar.style.background = 'rgb(' + [52, 152, 219].join(',') + ')';
       }
     } else {
       progressBar.style.width = autoClickerBar + "%";
-      if (autoClickerBar > 100){
-        progressBar.style.background = 'rgb(' + [46,204,113].join(',') + ')';
+      if (autoClickerBar > 100) {
+        progressBar.style.background = 'rgb(' + [46, 204, 113].join(',') + ')';
       }
-      else{
-        progressBar.style.background = 'rgb(' + [52,152,219].join(',') + ')';
-      }}}
+      else {
+        progressBar.style.background = 'rgb(' + [52, 152, 219].join(',') + ')';
+      }
+    }
+  }
   function clickMeFunc() {
     count += clickPower;
     check_count();
@@ -506,7 +529,7 @@ if (
   //   console.log(random);
 
   // }
-  
+
   function autoClickerFunc() {
     count -= Math.round(passiveUpgradeCost);
     passiveUpgrade += 1;
@@ -525,17 +548,17 @@ var btn2 = document.getElementById("myBtn");
 var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks on the button, open the modal
-btn2.onclick = function() {
+btn2.onclick = function () {
   modal.style.display = "block";
 }
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
+span.onclick = function () {
   modal.style.display = "none";
 }
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
+window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
