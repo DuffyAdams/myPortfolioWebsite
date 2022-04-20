@@ -19,6 +19,7 @@ function empty() {
 
 }
 
+
 function confirmation() {
   if (confirm("Submitting a score will decrease count by 50%\nDo you want to continue?") == true) {
 
@@ -63,7 +64,7 @@ if (
     clickPower = 1;
     passiveUpgradeCost = 10;
     passiveUpgrade = 0;
-    timeSpeed = 500;
+    timeSpeed = 1000;
     autoClickPower = 0;
   }
   startGame();
@@ -73,8 +74,10 @@ if (
   myInterval = setInterval(function () {
     for (var i = 0; i < 1; i++) {
       update()
+      console.log(timeSpeed);
     }
   }, timeSpeed);
+
   function Reset() {
     startGame();
   }
@@ -122,7 +125,7 @@ if (
       localStorage.getItem("passiveUpgradeCost") || 10
     );
     clickPower = JSON.parse(localStorage.getItem("clickPower") || 1);
-    timeSpeed = JSON.parse(localStorage.getItem("timeSpeed") || 500);
+    timeSpeed = JSON.parse(localStorage.getItem("timeSpeed") || timeSpeed);
     autoClickPower = JSON.parse(localStorage.getItem("autoClickPower") || 0);
   }
 
@@ -184,7 +187,6 @@ if (
         progressBar.style.background = 'rgb(' + [52, 152, 219].join(',') + ')';
       }
     }
-
   }
   function clickMeFunc() {
     count += clickPower;
@@ -206,9 +208,14 @@ if (
 
   function autoClickerFunc() {
     count -= Math.round(passiveUpgradeCost);
-    passiveUpgrade += 1
+    passiveUpgrade += 1;
     passiveUpgradeCost = passiveUpgradeCost * 1.07;
-    autoClickPower += 1
+    autoClickPower += 1;
+    if (passiveUpgrade % 10 === 0 && passiveUpgrade != 0){
+      timeSpeed = timeSpeed/2;
+      window.location.reload();
+    }
+    console.log("Time Speed" + timeSpeed)
     check_count();
   }
 } else {
@@ -380,7 +387,7 @@ if (
     clickPower = 1;
     passiveUpgradeCost = 10;
     passiveUpgrade = 0;
-    timeSpeed = 500;
+    timeSpeed = 1000;
     x = 0;
     autoClickPower = 0;
   }
@@ -394,6 +401,7 @@ if (
   myInterval = setInterval(function () {
     for (var i = 0; i < 1; i++) {
       update()
+      console.log(timeSpeed);
     }
   }, timeSpeed);
   function displayButtons() {
@@ -439,7 +447,7 @@ if (
       localStorage.getItem("passiveUpgradeCost") || 10
     );
     clickPower = JSON.parse(localStorage.getItem("clickPower") || 1);
-    timeSpeed = JSON.parse(localStorage.getItem("timeSpeed") || 500);
+    timeSpeed = JSON.parse(localStorage.getItem("timeSpeed") || timeSpeed);
     autoClickPower = JSON.parse(localStorage.getItem("autoClickPower") || 0);
   }
 
@@ -535,6 +543,11 @@ if (
     passiveUpgrade += 1;
     passiveUpgradeCost = passiveUpgradeCost * 1.1;
     autoClickPower += 1;
+    if (passiveUpgrade % 10 === 0 && passiveUpgrade != 0){
+      timeSpeed = timeSpeed/2;
+      window.location.reload();
+    }
+    console.log("Time Speed" + timeSpeed)
     check_count();
   }
 }
