@@ -1,12 +1,13 @@
 .disable-dbl-tap-zoom {
   touch-action: manipulation;
 }
+
 html {
   text-align: center;
   touch-action: manipulation;
 }
 
- .lightbulbNav {
+.lightbulbNav {
   height: 7vh;
   float: right;
   margin-right: 3vh;
@@ -15,6 +16,7 @@ html {
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%);
 }
+
 .saveNav {
   height: 8vh;
   float: left;
@@ -29,8 +31,8 @@ body {
   background-color: #2c3e50;
   min-height: 100%;
   touch-action: manipulation;
-
 }
+
 .display {
   touch-action: manipulation;
   color: #ffffff;
@@ -40,6 +42,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
+
 .wrapper {
   touch-action: manipulation;
   padding-top: 3vh;
@@ -51,27 +54,39 @@ body {
   border: none;
   touch-action: manipulation;
   font-size: 2.5vh;
-  background-color: #32506f; /* Green background */
-  color: white; /* White text */
-  cursor: pointer; /* Pointer/hand icon */
-  width: 45vh; /* Set a width if needed */
+  background-color: #32506f;
+  /* Green background */
+  color: white;
+  /* White text */
+  cursor: pointer;
+  /* Pointer/hand icon */
+  width: 45vh;
+  /* Set a width if needed */
   height: 11vh;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   touch-action: manipulation;
 }
+
+.button_container:hover {
+  width: 45vh;
+  /* Set a width if needed */
+  height: 11vh;
+}
+
 .button_container[disabled] {
   background-color: #cccccc;
   color: #666666;
   touch-action: manipulation;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 500px) {
   .saveButton[disabled] {
     background-color: #cccccc;
     color: #666666;
     touch-action: manipulation;
   }
+
   .saveButton[disabled]:hover {
     background-color: #cccccc;
     color: #666666;
@@ -80,31 +95,37 @@ body {
     -ms-transform: scale(1);
     transform: scale(1);
   }
+
   .saveButton:hover {
-    -webkit-transform: scale(0.93);
-    -ms-transform: scale(0.93);
-    transform: scale(0.93);
+    -webkit-transform: scale(0.96);
+    -ms-transform: scale(0.96);
+    transform: scale(0.96);
   }
+
   .saveButton:active {
     -webkit-transform: scale(0.93);
     -ms-transform: scale(0.93);
     transform: scale(0.93);
   }
+
   .saveNav:hover {
-    -webkit-transform: scale(1.03);
-    -ms-transform: scale(1.03);
-    transform: scale(1.03);
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
   }
+
   .lightbulbNav:hover {
-    -webkit-transform: scale(1.03);
-    -ms-transform: scale(1.03);
-    transform: scale(1.03);
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
   }
+
   .saveNav:active {
     -webkit-transform: scale(0.96);
     -ms-transform: scale(0.96);
     transform: scale(0.96);
   }
+
   .lightbulbNav:active {
     -webkit-transform: scale(0.96);
     -ms-transform: scale(0.96);
@@ -112,53 +133,59 @@ body {
   }
 }
 
-  particle {
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
-    font-weight: bold;
-    color: #000000;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+particle {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  font-weight: bold;
+  color: #000000;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    position: fixed;
-    left: 0;
-    top: 0;
-    border-radius: 50%;
-    pointer-events: none;
-    opacity: 0;
-    touch-action: manipulation;
-  }
-  label {
-    font-weight: bold;
-    font-size: 2vh;
-  }
-  
-  .usernameBox {
-    text-align: center;
-    width: 85%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  touch-action: manipulation;
+}
 
-    margin-bottom: 1.5vh;
-    margin-top: 1.5vh;
-    box-sizing: border-box;
-    font-size: 3vh;
-  
-  }
-  .saveButton{
-    border-radius: 5px;
-    border: none;
-    font-size: 3vh;
-    border: .1vh solid black;
-  }
+label {
+  font-weight: bold;
+  font-size: 2vh;
+}
+
+.usernameBox {
+  text-align: center;
+  width: 85%;
+  margin-bottom: 1.5vh;
+  margin-top: 1.5vh;
+  box-sizing: border-box;
+  font-size: 3vh;
+  max-width: 25vh;
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgba(134, 134, 134, 0.568);
+  font-size: 80%;
+  align-self: center;
 
 
+}
 
+.saveButton {
+  border-radius: 4px;
+  border: none;
+  font-size: 3vh;
+  border: .2vh solid black;
+}
 /* The Modal (background) */
-.modalHeader{
+.modalHeader {
   font-size: 3vh;
   padding-left: 5vh;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-  Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
-
 .save {
   margin-left: 3vh;
   margin-top: 2vh;
@@ -166,45 +193,53 @@ body {
   border-radius: 5px;
   border: none;
   touch-action: manipulation;
-  background-color: #32506f; /* Green background */
-  color: white; /* White text */
-  cursor: pointer; /* Pointer/hand icon */
-  width: 5.5vh; /* Set a width if needed */
-
+  background-color: #32506f;
+  color: white;
+  cursor: pointer;
+  width: 5.5vh;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   touch-action: manipulation;
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%);
 }
+
 .modal {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-  Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
 }
 
 /* Modal Content/Box */
 .modal-content {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-  Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  background-color: #fefefe;
-  margin: 5% auto; /* 15% from the top and centered */
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    background-color: #ffffff;
+    margin: 5% auto;
+  /* 15% from the top and centered */
   padding: 2vh;
   border: 4px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 80%;
+  /* Could be more or less, depending on screen size */
   border-radius: 8px;
-
 }
-
 
 /* The Close Button */
 .close {
@@ -212,21 +247,20 @@ body {
   float: right;
   font-size: 3vh;
   font-weight: bold;
-  margin-top: -20px;
+  margin-top: -25px;
 }
 
 .close:hover,
 .close:focus {
-
   color: black;
-
   cursor: pointer;
 }
+
 .highscores {
   font-size: 2.5vh;
   padding: 1.5vh;
   overflow: hidden;
-  text-align:start; 
+  text-align: start;
 }
 
 hr.dashed {
@@ -234,19 +268,22 @@ hr.dashed {
   border-top: 0.5vh dashed rgb(156, 156, 156);
   color: #fff;
   background-color: #fff;
-  height:.1vh;
+  height: .1vh;
   width: 100%;
 
 }
+
 #progress {
   position: fixed;
-  top: 0; left: 0; width: 100vw;
+  top: 0;
+  left: 0;
+  width: 100vw;
   background: #eee;
-  height: 10px;
-}
-#progress-bar {
-  height: inherit;
-  background: rgb(14, 172, 75);
-  transition: 0.25s;
+  height: 8px;
 }
 
+#progress-bar {
+  height: inherit;
+  background: rgb(255, 255, 255);
+  transition: 0.25s;
+}

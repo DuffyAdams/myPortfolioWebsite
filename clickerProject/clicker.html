@@ -7,11 +7,11 @@
   <meta name="viewport" content="width=device-width, user-scalable=no" />
   <title>Idle Clicker 🖱️</title>
   <!-- Light theme styleheet -->
-  <link rel="stylesheet" href="styles.css" id="theme-link" />
   <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
   <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+  <link rel="stylesheet" href="styles.css" id="theme-link" />
 
-  <input class="lightbulbNav" type="image" src="lightbulb-on.svg" id="lightmode" />
+  <input class="lightbulbNav" type="image" src="lightbulb-on.svg" id="darkmode" />
   <!-- THE MODAL -->
 
 
@@ -29,7 +29,7 @@
       <br>
       <input class="usernameBox" type="text" id="username" placeholder="Type Username Here" required maxlength="12" />
       <button class="saveButton" onclick="saveGame()" id="saveGame">
-        submit
+        Submit
       </button>
       <div class="highscores" id="highscores"></div>
     </div>
@@ -56,7 +56,8 @@
       Auto Click Upgrade (10)
     </button>
     <br /><br />
-    <button class="button_container" onclick="Reset()"
+    <button class="button_container" onclick="resetConfirmation();
+    "
       style="width:15vh;height:8vh;font-size:2.5vh;background-color: #c0392b;">
       Reset
     </button>
@@ -113,7 +114,6 @@
           autoClickPower: autoClickPower,
           order: 9999999999999 - count,
         };
-        count = count / 2;
         document.getElementById("highscores").innerHTML = "";
         ref.push(data);
         document.getElementById("highscores").innerHTML = "";
