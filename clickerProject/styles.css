@@ -5,6 +5,7 @@
 html {
   text-align:center;
   touch-action: manipulation;
+
 }
 
 .lightbulbNav {
@@ -21,6 +22,7 @@ html {
   margin-left: 3vh;
   margin-top: 1.5vh;
   touch-action: manipulation;
+
 }
 
 body {
@@ -63,12 +65,11 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   touch-action: manipulation;
+
 }
 
 .button_container:hover {
-  width: 45vh;
-  /* Set a width if needed */
-  height: 11vh;
+  transform:scale(1.008)
 }
 
 .button_container[disabled] {
@@ -115,6 +116,8 @@ body {
     -webkit-transform: scale(1.05);
     -ms-transform: scale(1.05);
     transform: scale(1.05);
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
   }
 
   .saveNav:active {
@@ -177,7 +180,7 @@ label {
 }
 /* The Modal (background) */
 .modalHeader {
-  font-size: 3vh;
+  font-size: 4vh;
   padding-left: 5vh;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -196,6 +199,7 @@ label {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   touch-action: manipulation;
+
 }
 
 .modal {
@@ -213,7 +217,7 @@ label {
   /* Full width */
   height: 100%;
   /* Full height */
-  overflow: auto;
+  overflow: scroll;
   /* Enable scroll if needed */
   background-color: rgb(0, 0, 0);
   /* Fallback color */
@@ -229,10 +233,12 @@ label {
   margin: 5% auto;
   /* 15% from the top and centered */
   padding: 2vh;
-  border: 4px solid #888;
-  width: 80%;
+  border: .6vh solid #888;
+  width: 90%;
   /* Could be more or less, depending on screen size */
-  border-radius: 8px;
+  border-radius: 6px;
+
+  
 }
 
 /* The Close Button */
@@ -244,7 +250,12 @@ label {
   margin-top: -25px;
 }
 
-.close:hover,
+.close:hover {
+  transform: scale(1.1);
+  cursor: default;
+
+
+}
 .close:focus {
   color: black;
   cursor: pointer;
@@ -253,8 +264,8 @@ label {
 .highscores {
   font-size: 2.5vh;
   padding: 1.5vh;
-  overflow: hidden;
   text-align: start;
+  overflow: hidden;
 }
 
 hr.dashed {

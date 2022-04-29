@@ -11,7 +11,7 @@
   <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
   <link rel="stylesheet" href="styles.css" id="theme-link" />
 
-  <input class="lightbulbNav" type="image" src="lightbulb-on.svg" id="darkmode" />
+  <input class="lightbulbNav" type="image" src="lightbulb-on.svg" id="lightmode" />
   <!-- THE MODAL -->
 
 
@@ -129,7 +129,7 @@
       document.getElementById("highscores").innerHTML = "";
       ref
         .orderByChild("order")
-        .limitToFirst(5)
+        .limitToFirst(50)
         .on("value", function (snapshot) {
           snapshot.forEach(function (data) {
             document.getElementById("highscores").innerHTML +=
