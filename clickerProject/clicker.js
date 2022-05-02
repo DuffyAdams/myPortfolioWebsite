@@ -22,6 +22,7 @@ function empty() {
 function resetConfirmation() {
   if (confirm("Are you sure you want to reset?") == true) {
     startGame();
+    location.reload();
   }
 }
 var clickBonusAmount = null;
@@ -90,6 +91,7 @@ function displayButtons() {
 }
 
 function save() {
+  localStorage.setItem("timeSpeed", JSON.stringify(timeSpeed));
   localStorage.setItem("darkMode", JSON.stringify(darkMode));
   localStorage.setItem("upgrade", JSON.stringify(upgrade));
   localStorage.setItem("count", JSON.stringify(count));
@@ -106,6 +108,7 @@ function save() {
 }
 function load() {
   darkMode = JSON.parse(localStorage.getItem("darkMode") || true);
+  timeSpeed = JSON.parse(localStorage.getItem("timeSpeed") || 1000);
   upgrade = JSON.parse(localStorage.getItem("upgrade") || 0);
   count = JSON.parse(localStorage.getItem("count") || 0);
   seconds = JSON.parse(localStorage.getItem("seconds") || 0);
