@@ -187,7 +187,12 @@ function autoClickerFunc() {
   autoClickPower += 1;
   if (passiveUpgrade % 10 === 0 && passiveUpgrade != 0) {
     timeSpeed = timeSpeed / 2;
-    window.location.reload();
+    clearInterval(myInterval);
+    myInterval = setInterval(function () {
+      for (var i = 0; i < 1; i++) {
+        update()
+      }
+    }, timeSpeed);
   }
   check_count();
 }
