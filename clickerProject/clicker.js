@@ -16,7 +16,6 @@ function empty() {
     return false;
   };
   if (confirm("Submitting a score will decrease count by 50%\nDo you want to continue?") == true) {
-    count = count / 2;
   }
 
 }

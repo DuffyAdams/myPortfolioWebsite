@@ -112,13 +112,17 @@
           passiveUpgrade: passiveUpgrade,
           timeSpeed: timeSpeed,
           autoClickPower: autoClickPower,
-          order: 9999999999999 - count,
+          order: -count,
         };
         document.getElementById("highscores").innerHTML = "";
         ref.push(data);
         document.getElementById("highscores").innerHTML = "";
 
         gotData();
+        count = Math.round(count / 2);
+        
+
+
       }
 
     }
