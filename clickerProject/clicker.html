@@ -38,6 +38,8 @@
 </head>
   <div class="display">
     <h1 id="count-display">0</h1>
+    <h3 id="persec-display"></h3>
+
   </div>
 <body>
   <div id="progress">
@@ -86,7 +88,6 @@
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
-    console.log(firebase);
     var ref = firebase.database().ref("counts");
     function saveGame() {
       if (empty() == false) {
@@ -141,7 +142,6 @@
               data.val().name +
               "<br/>Score: " +
               nFormatter(data.val().count, 2) + "<hr class=dashed>";
-            console.log(data.val().count);
 
           });
 

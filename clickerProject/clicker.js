@@ -33,6 +33,7 @@ document.getElementById("upgrade").disabled = true;
 var button3 = document.getElementById("passiveUpgrade");
 document.getElementById("passiveUpgrade").disabled = true;
 var countDisplay = document.getElementById("count-display");
+var persecDisplay = document.getElementById("persec-display");
 var savButton = document.getElementById("saveGame");
 const progressBar = document.querySelector("#progress-bar");
 
@@ -50,7 +51,7 @@ myBtn.addEventListener("click", function () {
 function startGame() {
   username = "Guest";
   convertCount = 0;
-  count = 0;
+  count = 800;
   upgrade = 0;
   seconds = 0;
   upgradeCost = 10;
@@ -186,16 +187,20 @@ function autoClickerFunc() {
   update();
   count -= Math.round(passiveUpgradeCost);
   passiveUpgrade += 1;
-  passiveUpgradeCost = passiveUpgradeCost * 1.1;
+  passiveUpgradeCost = passiveUpgradeCost * 1.08;
   autoClickPower += 1;
+  perSec();
   if (passiveUpgrade % 10 === 0 && passiveUpgrade != 0) {
-    timeSpeed = timeSpeed / 2;
+    timeSpeed = timeSpeed /1.15;
+    autoClickPower = autoClickPower * 1.4;
     clearInterval(myInterval);
     myInterval = setInterval(function () {
       for (var i = 0; i < 1; i++) {
         update()
       }
     }, timeSpeed);
+    console.log(timeSpeed/1000 + " Seconds");
+
   }
   check_count();
 }
@@ -208,6 +213,10 @@ function buyUpgradeFunc() {
   upgrade += 1
   upgradeCost = upgradeCost * 1.05;
   clickPower += 1;
+  if (clickPower % 10 == 0){
+    clickPower = clickPower * 1.2;
+  }
+  console.log(clickPower);
   button2.innerHTML =
     "Clicker Upgrade: " + clickPower + " (" + upgradeCost + ")";
   countDisplay.innerHTML = count;
@@ -216,6 +225,10 @@ function buyUpgradeFunc() {
 function clickMeFunc() {
   count += clickPower;
   update();
+
+}
+function perSec(){
+  persecDisplay.innerHTML = nFormatter((1000/timeSpeed) * autoClickPower) + " per/sec"
 }
 
 function pop(e) {
@@ -272,7 +285,7 @@ function createParticle(x, y, type) {
 
         clickBonusAmount = randomIntFromInterval(2, 15);
         bonusClick = clickPower * clickBonusAmount;
-        count += (bonusClick);
+        count += (bonusClick-1);
         particle.innerHTML = ["", "", "", "<span style='color:#f1c40f','font-weight: bolder'>" + " +" + bonusClick + "</span>", "", "", ""][
           Math.floor(3)
 
@@ -285,7 +298,7 @@ function createParticle(x, y, type) {
       else if (random < 2) {
         clickBonusAmount = randomIntFromInterval(100, 150);
         bonusClick = clickPower * clickBonusAmount;
-        count += (bonusClick);
+        count += (bonusClick-1);
         particle.innerHTML = ["", "", "", "<span style='color:#2ecc71'>" + " +" + bonusClick + "</span>", "", "", ""][
           Math.floor(3)
 
@@ -307,9 +320,16 @@ function createParticle(x, y, type) {
       width = height = "auto";
       break;
     case "autoClick":
-      particle.innerHTML = ["⏫", "⏫", "⏫", "", "", "", ""][
+      if (autoClickPower % 10 == 0) {
+        particle.innerHTML = ["🌟", "🌟", "🌟", "🌟", "🌟", "🌟", "🌟"][
         Math.floor(1)
-      ];
+        ];
+      } else{
+        particle.innerHTML = ["⏫", "⏫", "⏫", "", "", "", ""][
+          Math.floor(1)
+        ];
+      }
+
       particle.style.fontSize = `${Math.random() * 5 + 2}vh`;
       width = height = "auto";
       break;
