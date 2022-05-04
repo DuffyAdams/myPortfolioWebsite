@@ -51,7 +51,7 @@ myBtn.addEventListener("click", function () {
 function startGame() {
   username = "Guest";
   convertCount = 0;
-  count = 800;
+  count = 0;
   upgrade = 0;
   seconds = 0;
   upgradeCost = 10;
@@ -192,7 +192,6 @@ function autoClickerFunc() {
   perSec();
   if (passiveUpgrade % 10 === 0 && passiveUpgrade != 0) {
     timeSpeed = timeSpeed /1.15;
-    autoClickPower = autoClickPower * 1.4;
     clearInterval(myInterval);
     myInterval = setInterval(function () {
       for (var i = 0; i < 1; i++) {
@@ -203,6 +202,7 @@ function autoClickerFunc() {
 
   }
   check_count();
+  update();
 }
 function round5(x) {
   return Math.ceil(x / 5) * 5;
@@ -213,9 +213,6 @@ function buyUpgradeFunc() {
   upgrade += 1
   upgradeCost = upgradeCost * 1.05;
   clickPower += 1;
-  if (clickPower % 10 == 0){
-    clickPower = clickPower * 1.2;
-  }
   console.log(clickPower);
   button2.innerHTML =
     "Clicker Upgrade: " + clickPower + " (" + upgradeCost + ")";
@@ -228,7 +225,7 @@ function clickMeFunc() {
 
 }
 function perSec(){
-  persecDisplay.innerHTML = nFormatter((1000/timeSpeed) * autoClickPower) + " per/sec"
+  persecDisplay.innerHTML = nFormatter((1000/timeSpeed) * autoClickPower,2) + " per/sec"
 }
 
 function pop(e) {
