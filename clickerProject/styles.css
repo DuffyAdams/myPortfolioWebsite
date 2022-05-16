@@ -3,9 +3,8 @@
 }
 
 html {
-  text-align:center;
+  text-align: center;
   touch-action: manipulation;
-
 }
 
 .lightbulbNav {
@@ -34,10 +33,9 @@ body {
 .display {
   touch-action: manipulation;
   color: #ffffff;
-  text-rendering: optimizeSpeed;
   font-size: 5vh;
   padding-top: 15vh;
-  line-height:1vh;
+  line-height: 1vh;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
@@ -45,13 +43,11 @@ body {
 #persec-display {
   touch-action: manipulation;
   color: #ffffff;
-  text-rendering: optimizeSpeed;
   font-size: 2.5vh;
   padding-bottom: 5vh;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
-
 
 .wrapper {
   touch-action: manipulation;
@@ -80,16 +76,16 @@ body {
 }
 
 .button_container:hover {
-  transform:scale(1.008)
-}
-.button_container:hover[disabled] {
-  transform:scale(1);
-  cursor: not-allowed! important;
-}
-.button_container:active {
-  transform:scale(.98);
+  transform: scale(1.008)
 }
 
+.button_container:hover[disabled] {
+  transform: scale(1);
+  cursor: not-allowed ! important;
+}
+.button_container:active {
+  transform: scale(.98);
+}
 .button_container[disabled] {
   background-color: #cccccc;
   color: #666666;
@@ -196,6 +192,7 @@ label {
   font-size: 3vh;
   border: .2vh solid black;
 }
+
 /* The Modal (background) */
 .modalHeader {
   font-size: 4vh;
@@ -203,6 +200,7 @@ label {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
+
 .save {
   margin-left: 3vh;
   margin-top: 2vh;
@@ -256,7 +254,7 @@ label {
   /* Could be more or less, depending on screen size */
   border-radius: 6px;
 
-  
+
 }
 
 /* The Close Button */
@@ -274,6 +272,7 @@ label {
 
 
 }
+
 .close:focus {
   color: black;
   cursor: pointer;
@@ -310,4 +309,3 @@ hr.dashed {
   background: rgb(255, 255, 255);
   transition: 0.25s;
 }
-  
